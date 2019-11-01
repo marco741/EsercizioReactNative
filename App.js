@@ -14,8 +14,7 @@ const AppNavigator = createStackNavigator(
     Component5: {screen: Component5},
   },
   {
-    initialRoute: 'Component6', //Per qualche motivo sembra ininfluente,
-    //                            dipende solo da quale metti sopra
+    initialRouteName: 'Component5',
   },
 );
 

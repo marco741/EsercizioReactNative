@@ -21,8 +21,8 @@ function Component6({navigation}) {
   );
 }
 
-Component6.navigationOptions = () => {
-  title: 'Component6';
+Component6.navigationOptions = {
+  title: 'Component6',
 };
 
 export default Component6;

@@ -1,5 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {FlatList, View, Text, StyleSheet, Button} from 'react-native';
+import {
+  FlatList,
+  View,
+  Text,
+  StyleSheet,
+  TouchableHighlight,
+} from 'react-native';
 
 function Component5({navigation}) {
   const [users, setUsers] = useState([]);
@@ -12,24 +18,31 @@ function Component5({navigation}) {
     fetchdata();
   }, []);
 
+  const onPress = item => {
+    navigation.navigate('Component7', {item: item});
+  };
+
   return (
     <>
       <FlatList
         data={users}
         renderItem={({item}) => (
-          <View style={styles.row}>
-            <Text style={styles.rowText}>
-              {item.name}: {item.email}
-            </Text>
-          </View>
+          <TouchableHighlight onPress={() => onPress(item)}>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>
+                {item.name}: {item.email}
+              </Text>
+            </View>
+          </TouchableHighlight>
         )}
+        keyExtractor={item => item.id.toString()}
       />
     </>
   );
 }
 
-Component5.navigationOptions = () => {
-  title: 'Component5';
+Component5.navigationOptions = {
+  title: 'Component5',
 };
 
 const styles = StyleSheet.create({
